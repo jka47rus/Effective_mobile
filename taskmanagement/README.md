@@ -1,4 +1,4 @@
-# Task management
+# Task management System
 
 Система управления задачами представляет собой RESTful API приложение, разработанное с использованием Java, Spring Boot,
 Spring Security. Система позволяет пользователям создавать, редактировать, удалять и просматривать задачи. Каждая задача
@@ -24,3 +24,9 @@ API для задач:
 Документация API: API документировано с помощью OpenAPI и Swagger. Swagger UI доступен для тестирования API.
 
 Тестирование: Написаны тесты для проверки методов Task сервиса.
+
+Запуск базы данных PostgreSQL через Docker Compose:  
+В корне проекта находится папка docker c файлом docker-compose.yaml. Запустите его командой в терминале: docker-compose up.
+
+Swagger UI:
+После успешного запуска приложения Swagger UI будет доступен по адресу: http://localhost:8080/swagger-ui/index.html.
