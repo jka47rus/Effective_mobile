@@ -30,7 +30,7 @@ public class TaskController {
     @Operation(summary = "Создать задачу", description = "Доступно только для ADMIN")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Задача создана"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
@@ -43,7 +43,7 @@ public class TaskController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Задача обновлена"),
             @ApiResponse(responseCode = "404", description = "Задача не найдена"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
@@ -56,7 +56,7 @@ public class TaskController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Задача удалена"),
             @ApiResponse(responseCode = "404", description = "Задача не найдена"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
@@ -69,7 +69,7 @@ public class TaskController {
     @Operation(summary = "Получить все задачи", description = "Доступно только для ADMIN")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Список задач получен"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
@@ -81,7 +81,7 @@ public class TaskController {
     @Operation(summary = "Получить задачи по исполнителю", description = "Доступно для USER и ADMIN")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Список задач получен"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping("/assignee")
@@ -92,7 +92,7 @@ public class TaskController {
     @Operation(summary = "Получить задачи по автору", description = "Доступно для USER и ADMIN")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Список задач получен"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping("/author")
@@ -105,7 +105,7 @@ public class TaskController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Приоритет задачи изменен"),
             @ApiResponse(responseCode = "404", description = "Задача не найдена"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -121,7 +121,7 @@ public class TaskController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Исполнитель назначен"),
             @ApiResponse(responseCode = "404", description = "Задача или пользователь не найдены"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/assign")
@@ -134,7 +134,7 @@ public class TaskController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Статус задачи изменен"),
             @ApiResponse(responseCode = "404", description = "Задача не найдена"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @PutMapping("/{id}/status")
@@ -148,7 +148,7 @@ public class TaskController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Комментарий добавлен"),
             @ApiResponse(responseCode = "404", description = "Задача не найдена"),
-            @ApiResponse(responseCode = "403", description = "Доступ запрещен")
+            @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @PostMapping("/{id}/comment")
